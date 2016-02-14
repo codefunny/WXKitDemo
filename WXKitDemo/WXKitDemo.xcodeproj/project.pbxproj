@@ -15,6 +15,7 @@
 		5096EF361C7013A500567D7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5096EF341C7013A500567D7C /* LaunchScreen.storyboard */; };
 		5096EF411C7013A600567D7C /* WXKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5096EF401C7013A600567D7C /* WXKitDemoTests.m */; };
 		5096EF4F1C70140C00567D7C /* WXLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5096EF4E1C70140C00567D7C /* WXLoadingView.m */; };
+		5096EF571C7050AC00567D7C /* WXToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5096EF561C7050AC00567D7C /* WXToastView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		5096EF421C7013A600567D7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5096EF4D1C70140C00567D7C /* WXLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXLoadingView.h; sourceTree = "<group>"; };
 		5096EF4E1C70140C00567D7C /* WXLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXLoadingView.m; sourceTree = "<group>"; };
+		5096EF551C7050AC00567D7C /* WXToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXToastView.h; sourceTree = "<group>"; };
+		5096EF561C7050AC00567D7C /* WXToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXToastView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +69,9 @@
 		5096EF1A1C7013A500567D7C = {
 			isa = PBXGroup;
 			children = (
+				5096EF241C7013A500567D7C /* Products */,
 				5096EF251C7013A500567D7C /* WXKitDemo */,
 				5096EF3F1C7013A600567D7C /* WXKitDemoTests */,
-				5096EF241C7013A500567D7C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,16 +87,17 @@
 		5096EF251C7013A500567D7C /* WXKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5096EF261C7013A500567D7C /* Supporting Files */,
 				5096EF4B1C7013AC00567D7C /* WXLoading */,
+				5096EF541C70508100567D7C /* WXToast */,
 				5096EF291C7013A500567D7C /* AppDelegate.h */,
 				5096EF2A1C7013A500567D7C /* AppDelegate.m */,
+				5096EF321C7013A500567D7C /* Assets.xcassets */,
+				5096EF371C7013A500567D7C /* Info.plist */,
+				5096EF341C7013A500567D7C /* LaunchScreen.storyboard */,
+				5096EF2F1C7013A500567D7C /* Main.storyboard */,
 				5096EF2C1C7013A500567D7C /* ViewController.h */,
 				5096EF2D1C7013A500567D7C /* ViewController.m */,
-				5096EF2F1C7013A500567D7C /* Main.storyboard */,
-				5096EF321C7013A500567D7C /* Assets.xcassets */,
-				5096EF341C7013A500567D7C /* LaunchScreen.storyboard */,
-				5096EF371C7013A500567D7C /* Info.plist */,
-				5096EF261C7013A500567D7C /* Supporting Files */,
 			);
 			path = WXKitDemo;
 			sourceTree = "<group>";
@@ -103,14 +107,14 @@
 			children = (
 				5096EF271C7013A500567D7C /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		5096EF3F1C7013A600567D7C /* WXKitDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				5096EF401C7013A600567D7C /* WXKitDemoTests.m */,
 				5096EF421C7013A600567D7C /* Info.plist */,
+				5096EF401C7013A600567D7C /* WXKitDemoTests.m */,
 			);
 			path = WXKitDemoTests;
 			sourceTree = "<group>";
@@ -121,7 +125,16 @@
 				5096EF4D1C70140C00567D7C /* WXLoadingView.h */,
 				5096EF4E1C70140C00567D7C /* WXLoadingView.m */,
 			);
-			name = WXLoading;
+			path = WXLoading;
+			sourceTree = "<group>";
+		};
+		5096EF541C70508100567D7C /* WXToast */ = {
+			isa = PBXGroup;
+			children = (
+				5096EF551C7050AC00567D7C /* WXToastView.h */,
+				5096EF561C7050AC00567D7C /* WXToastView.m */,
+			);
+			path = WXToast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5096EF2E1C7013A500567D7C /* ViewController.m in Sources */,
+				5096EF571C7050AC00567D7C /* WXToastView.m in Sources */,
 				5096EF2B1C7013A500567D7C /* AppDelegate.m in Sources */,
 				5096EF4F1C70140C00567D7C /* WXLoadingView.m in Sources */,
 				5096EF281C7013A500567D7C /* main.m in Sources */,
@@ -256,6 +270,7 @@
 				5096EF301C7013A500567D7C /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		5096EF341C7013A500567D7C /* LaunchScreen.storyboard */ = {
@@ -264,6 +279,7 @@
 				5096EF351C7013A500567D7C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -416,6 +432,7 @@
 				5096EF471C7013A600567D7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5096EF481C7013A600567D7C /* Build configuration list for PBXNativeTarget "WXKitDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +441,7 @@
 				5096EF4A1C7013A600567D7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

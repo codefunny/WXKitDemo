@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSInteger,WXLoadingType) {
     WXLoadingTypeDefault = 0,
     WXLoadingTypeDashPattern,
+    WXLoadingTypeActivity,
 };
 
 @interface WXLoadingView : UIView

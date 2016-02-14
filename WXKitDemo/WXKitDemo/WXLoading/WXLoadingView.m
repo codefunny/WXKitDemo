@@ -26,6 +26,8 @@ static NSString* const kAnimationKey = @"loadingAnimation";
 @property (nonatomic,strong) CAShapeLayer   *backLayer;
 @property (nonatomic,strong) CAShapeLayer   *loadingLayer;
 
+@property (nonatomic,strong) UIActivityIndicatorView *activity;
+
 @end
 
 @implementation WXLoadingView
@@ -46,7 +48,6 @@ static NSString* const kAnimationKey = @"loadingAnimation";
     self.loadingColor = [UIColor redColor];
     [self addSubview:self.backgroundView];
     [self.backgroundView addSubview:self.messageLabel];
-    [self loadShapeLayer:self.backgroundView];
 }
 
 - (void)loadShapeLayer:(UIView *)view {
@@ -83,8 +84,16 @@ static NSString* const kAnimationKey = @"loadingAnimation";
     }
     
     _isShowing = YES;
-    if (self.loadingType == WXLoadingTypeDashPattern) {
+    if (self.loadingType == WXLoadingTypeDefault) {
+        [self loadShapeLayer:self.backgroundView];
+        self.loadingLayer.strokeColor = self.loadingColor.CGColor;
+    } else if (self.loadingType == WXLoadingTypeDashPattern) {
+        [self loadShapeLayer:self.backgroundView];
         self.loadingLayer.lineDashPattern = @[@5,@5];
+        self.loadingLayer.strokeColor = self.loadingColor.CGColor;
+    } else if (self.loadingType == WXLoadingTypeActivity){
+        [self.backgroundView addSubview:self.activity];
+        self.activity.color = self.loadingColor;
     }
     
     if (self.message) {
@@ -92,13 +101,20 @@ static NSString* const kAnimationKey = @"loadingAnimation";
     }
     
     self.backgroundView.backgroundColor = self.backViewColor;
-    self.loadingLayer.strokeColor = self.loadingColor.CGColor;
     
     [self updateCustomConstraints];
     [self addToWindow];
-    [self updateLayerPathInView:self.backgroundView];
     
-    [self startAnimate];
+    if (self.loadingType == WXLoadingTypeDefault || self.loadingType == WXLoadingTypeDashPattern) {
+        [self updateLayerPathInView:self.backgroundView];
+        [self startAnimate];
+    } else if (self.loadingType == WXLoadingTypeActivity) {
+        CGFloat cricleHeiht = self.backgroundView.bounds.size.height - kMessageLabelHeight - kShapeLayerMarginTop;
+        CGFloat cricleX = (self.backgroundView.bounds.size.width - cricleHeiht)/2.;
+        CGRect cricleRect = CGRectMake(cricleX, kShapeLayerMarginTop, cricleHeiht, cricleHeiht);
+        self.activity.frame = cricleRect;
+        [self.activity startAnimating];
+    }
 }
 
 - (void)hide {
@@ -192,6 +208,14 @@ static NSString* const kAnimationKey = @"loadingAnimation";
     }
     
     return _loadingLayer;
+}
+
+- (UIActivityIndicatorView *)activity {
+    if (!_activity) {
+        _activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    }
+    
+    return _activity;
 }
 
 #pragma mark -
