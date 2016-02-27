@@ -44,6 +44,7 @@ static NSString* const kAnimationKey = @"loadingAnimation";
 - (void)setUp {
     _isShowing = NO;
     self.loadingType = WXLoadingTypeDefault;
+    self.message = @"正在加载";
     self.backViewColor = [[UIColor lightGrayColor]colorWithAlphaComponent:0.8];
     self.loadingColor = [UIColor redColor];
     [self addSubview:self.backgroundView];
@@ -128,10 +129,11 @@ static NSString* const kAnimationKey = @"loadingAnimation";
 
 - (void)updateCustomConstraints {
     
+    CGFloat width = MIN(CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds));
     [self.backgroundView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.backgroundView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.backgroundView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1. constant:0]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.backgroundView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:0.25 constant:0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.backgroundView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:0.25 * width]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.backgroundView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.backgroundView attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
     
     UIView *otherItem = self.backgroundView;

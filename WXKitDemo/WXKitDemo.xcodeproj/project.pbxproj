@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5049A4DC1C71EC540007EF81 /* WXBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5049A4DB1C71EC540007EF81 /* WXBadgeView.m */; };
+		5049A4DF1C71F7AC0007EF81 /* UIView+WXBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 5049A4DE1C71F7AC0007EF81 /* UIView+WXBadge.m */; };
 		5096EF281C7013A500567D7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5096EF271C7013A500567D7C /* main.m */; };
 		5096EF2B1C7013A500567D7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5096EF2A1C7013A500567D7C /* AppDelegate.m */; };
 		5096EF2E1C7013A500567D7C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5096EF2D1C7013A500567D7C /* ViewController.m */; };
@@ -29,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5049A4DA1C71EC540007EF81 /* WXBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXBadgeView.h; sourceTree = "<group>"; };
+		5049A4DB1C71EC540007EF81 /* WXBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXBadgeView.m; sourceTree = "<group>"; };
+		5049A4DD1C71F7AC0007EF81 /* UIView+WXBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WXBadge.h"; sourceTree = "<group>"; };
+		5049A4DE1C71F7AC0007EF81 /* UIView+WXBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WXBadge.m"; sourceTree = "<group>"; };
 		5096EF231C7013A500567D7C /* WXKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WXKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5096EF271C7013A500567D7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5096EF291C7013A500567D7C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,6 +72,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5049A4D91C71E6FD0007EF81 /* WXBadge */ = {
+			isa = PBXGroup;
+			children = (
+				5049A4DD1C71F7AC0007EF81 /* UIView+WXBadge.h */,
+				5049A4DE1C71F7AC0007EF81 /* UIView+WXBadge.m */,
+				5049A4DA1C71EC540007EF81 /* WXBadgeView.h */,
+				5049A4DB1C71EC540007EF81 /* WXBadgeView.m */,
+			);
+			path = WXBadge;
+			sourceTree = "<group>";
+		};
 		5096EF1A1C7013A500567D7C = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				5096EF261C7013A500567D7C /* Supporting Files */,
+				5049A4D91C71E6FD0007EF81 /* WXBadge */,
 				5096EF4B1C7013AC00567D7C /* WXLoading */,
 				5096EF541C70508100567D7C /* WXToast */,
 				5096EF291C7013A500567D7C /* AppDelegate.h */,
@@ -237,9 +255,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5049A4DF1C71F7AC0007EF81 /* UIView+WXBadge.m in Sources */,
 				5096EF2E1C7013A500567D7C /* ViewController.m in Sources */,
 				5096EF571C7050AC00567D7C /* WXToastView.m in Sources */,
 				5096EF2B1C7013A500567D7C /* AppDelegate.m in Sources */,
+				5049A4DC1C71EC540007EF81 /* WXBadgeView.m in Sources */,
 				5096EF4F1C70140C00567D7C /* WXLoadingView.m in Sources */,
 				5096EF281C7013A500567D7C /* main.m in Sources */,
 			);

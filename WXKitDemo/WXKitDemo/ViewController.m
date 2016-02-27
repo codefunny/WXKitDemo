@@ -10,6 +10,8 @@
 #import "WXLoadingView.h"
 #import "WXToastView.h"
 
+#import "UIView+WXBadge.h"
+
 @interface ViewController () {
     WXLoadingView *_loadingView;
 }
@@ -100,6 +102,62 @@
         btn ;
     });
     [self.view addSubview:button7];
+    
+    UIButton *button8 = ({
+        UIButton *btn = [UIButton buttonWithType: UIButtonTypeCustom];
+        btn.frame = CGRectMake(10, 200, 50, 40);
+        btn.titleLabel.adjustsFontSizeToFitWidth = YES;
+        [btn setTitle:@"badge" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btn setBackgroundColor:[UIColor blueColor]];
+        [btn addTarget:self action:@selector(onBadgeClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = 108;
+        btn ;
+    });
+    [self.view addSubview:button8];
+    [button8 showBadge];
+    
+    UIButton *button9 = ({
+        UIButton *btn = [UIButton buttonWithType: UIButtonTypeCustom];
+        btn.frame = CGRectMake(100, 200, 50, 40);
+        btn.titleLabel.adjustsFontSizeToFitWidth = YES;
+        [btn setTitle:@"badge" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btn setBackgroundColor:[UIColor blueColor]];
+        [btn addTarget:self action:@selector(onBadgeClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = 109;
+        btn ;
+    });
+    [self.view addSubview:button9];
+    [button9 showBadgeWithStyle:WXBadgeStyleNew value:0];
+    
+    UIButton *button10 = ({
+        UIButton *btn = [UIButton buttonWithType: UIButtonTypeCustom];
+        btn.frame = CGRectMake(190, 200, 50, 40);
+        btn.titleLabel.adjustsFontSizeToFitWidth = YES;
+        [btn setTitle:@"badge" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btn setBackgroundColor:[UIColor blueColor]];
+        [btn addTarget:self action:@selector(onBadgeClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = 110;
+        btn ;
+    });
+    [self.view addSubview:button10];
+    [button10 showBadgeWithStyle:WXBadgeStyleNumber value:90];
+    
+    UIButton *button11 = ({
+        UIButton *btn = [UIButton buttonWithType: UIButtonTypeCustom];
+        btn.frame = CGRectMake(280, 200, 50, 40);
+        btn.titleLabel.adjustsFontSizeToFitWidth = YES;
+        [btn setTitle:@"badge" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btn setBackgroundColor:[UIColor blueColor]];
+        [btn addTarget:self action:@selector(onBadgeClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = 111;
+        btn ;
+    });
+    [self.view addSubview:button11];
+    [button11 showBadgeWithStyle:WXBadgeStyleNumber value:190];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -132,6 +190,32 @@
     } else {
     [WXToastView toastWithMessage:@"today is 2016/2/14,\nhehehehhehhehehehehehehehehehehehehehehhehehehehe" position:WXToastPositionMiddle];
     }
+}
+
+- (void)onBadgeClick:(UIButton *)sender {
+    sender.selected = !sender.isSelected;
+    if (sender.isSelected) {
+        [sender hideBadge];
+    } else {
+        switch (sender.tag) {
+            case 108:
+                [sender showBadge];
+                break;
+            case 109:
+                [sender showBadgeWithStyle:WXBadgeStyleNew value:0];
+                break;
+            case 110:
+                [sender showBadgeWithStyle:WXBadgeStyleNumber value:90];
+                break;
+            case 111:
+                [sender showBadgeWithStyle:WXBadgeStyleNumber value:190];
+                break;
+            default:
+                break;
+        }
+        
+    }
+    
 }
 
 @end
